@@ -1,0 +1,21 @@
+# Virtual environment
+venv/
+
+# ChromaDB data (regenerated from your PDFs — don't commit this)
+chroma_db/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# PyCharm settings
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temp files
+*.tmp
+ragassist_*.pdf
