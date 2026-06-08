@@ -63,8 +63,8 @@ PDF_Assistant/
 ## Key Design Decisions
 
 **Chunking strategy:** 1000-character chunks with 200-character overlap using
-`RecursiveCharacterTextSplitter`. The recursive separator order
-(`\n\n → \n → space`) ensures splits happen at natural language boundaries
+RecursiveCharacterTextSplitter. The recursive separator order
+(\n\n → \n → space) ensures splits happen at natural language boundaries
 rather than mid-sentence.
 
 **Grounded prompting:** The prompt explicitly instructs the model to use only
