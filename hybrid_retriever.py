@@ -1,22 +1,6 @@
 """
 Hybrid retrieval: combines dense (vector) search with sparse (BM25 keyword)
 search, then reranks the merged candidates with a cross-encoder.
-
-Why this exists
-----------------
-- Vector search finds chunks by MEANING but can miss exact terms
-  (acronyms, equation names, specific numbers, symbols) that don't embed
-  distinctly from surrounding text.
-- BM25 finds chunks by exact/near-exact term overlap but misses paraphrases
-  and synonyms.
-- Combining both ("hybrid search") and then reranking the merged candidate
-  pool with a cross-encoder — which scores (query, passage) together,
-  much more accurately than comparing two independent embeddings — is the
-  standard way to meaningfully improve RAG retrieval quality beyond a
-  single vector store with cosine similarity.
-
-Pipeline: query -> [BM25 top-N, vector top-N] -> fuse (reciprocal rank
-fusion) -> cross-encoder rerank -> top-k chunks -> LLM prompt.
 """
 
 from langchain_community.retrievers import BM25Retriever
