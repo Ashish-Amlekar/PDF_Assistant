@@ -1,25 +1,6 @@
 """
 Before/after comparison: baseline (plain vector search) retriever vs. the
 hybrid (BM25 + vector + cross-encoder rerank) retriever.
-
-Runs the SAME test set through the SAME judge with the SAME RunConfig
-against both retrievers, so the only thing that differs between the two
-runs is the retriever itself. That isolation is what makes any score
-difference a real, attributable result rather than noise.
-
-Setup
------
-Same as eval_ragas.py — this reuses TEST_SET, run_pipeline, and
-build_eval_dataset from that file directly, so keep TEST_SET filled in
-over there.
-
-Usage
------
-python compare_retrievers.py
-
-Takes roughly 2x as long as a single eval_ragas.py run, since it does
-the full run twice. Start with QUICK_TEST_SIZE=2 in eval_ragas.py for a
-fast sanity check before committing to the full comparison.
 """
 
 from ragas import evaluate
